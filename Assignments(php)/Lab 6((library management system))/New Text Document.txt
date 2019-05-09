@@ -1,0 +1,98 @@
+<?php
+// Start Session
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+<style>
+.error {color: #FF0000;}
+</style>
+<?php
+	
+	$id = $name = "";
+	$idErr = $pwdErr = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["txtid"])) {
+    $idErr = "ID is required";
+  } else {
+    $id = test_input($_POST["txtid"]);
+  }
+  if (empty($_POST["txtpassword"])) {
+    $pwdErr = "Password is required";
+  } else {
+    $pwd = test_input($_POST["txtpassword"]);
+  } 
+
+
+  if(isset($id) && isset($pwd))
+	{
+	$dbserver = 'localhost';
+	$dbuser = 'root';
+	$dbpwd = '';
+	$dbname = 'librarystock';
+
+	$conn = mysqli_connect($dbserver,$dbuser,$dbpwd,$dbname);
+	$sql = "SELECT * FROM manager WHERE id=".$id;
+	$res = mysqli_query($conn, $sql);
+
+
+		while($row= mysqli_fetch_array($res))
+		{
+			echo $row['id'];
+			echo $row['password'];
+			if($row['id']==$id && $row['password']==$pwd)
+			{
+				echo "<br>Your are logged in<br>";
+				$_SESSION["managerid"] = $id;
+				$_SESSION["managerpwd"] = $pwd;
+			}
+			else 
+			{
+				echo "<br>Incorrect Id & Password<br>";
+			}
+
+		}
+
+	
+}
+else
+{
+	echo "<br>Insert id and password before submiting.<br>";
+}
+
+  
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+</head>
+<body>
+<h1>Manager Control</h1>
+<h2>Manager Login</h2>
+<form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+	ID: <input type="text" name="txtid">
+	<span class="error">* <?php echo $idErr;?></span><br>
+	
+	Password: <input type="text" name="txtpassword">
+	<span class="error">* <?php echo $pwdErr;?></span><br>
+	
+	<input type="submit" name="Login">
+</form>
+
+<?php
+
+
+?>
+
+</body>
+</html>
