@@ -1,0 +1,97 @@
+.page{
+	width:820px;
+	height: 1070px;
+	margin: auto;
+	font:serif ; 
+	 text-align: center;
+	 background-color: white;
+   border:2px solid #3388dd;
+   border-radius: 8px;
+}
+.infophoto{
+	height: 220px;
+}
+.info{
+	font-size:15px;
+	float:left;
+	text-align: left;
+}
+.photo{
+	float: right;
+	margin:5px 15px ;
+}
+
+.comSkills{
+	height: 220px;
+}
+.l{
+	text-align: left;
+	float:left;
+	width: 220px;	
+
+
+}
+.r{
+	text-align: left;
+	float:left;
+	width: 480px;
+	}
+
+.AcaProjects{
+	height: 120px;
+}
+.SoftTools{
+height: 20px;
+}
+h1{
+	font: 25px serif ;
+	text-align: center;
+    padding: 2px;
+    color: black;
+    background-color: white  ;
+   
+    border-bottom: 3px solid #3388DD  ;
+  
+}
+
+h2{ text-align: left;
+	font-size:16px;
+	color:#000066    ;
+	background-color:#CFD8DC    ;
+	border-top:2px solid gray;
+	padding: 02px;
+
+}
+
+
+table,td,th{
+	font-size: 15px ;
+width: 760px;
+		text-align: center; ;
+	border:solid black 1px;
+	 border-collapse: collapse;
+	  padding: 4px;
+	  text-align: left;
+}
+
+
+a:link {
+    color: #0457A0    ;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color:#0457A0      ;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color:  #3388DD;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: #FAE662    ;
+    background-color: transparent;
+    text-decoration: underline;
+}
